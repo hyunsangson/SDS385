@@ -1,0 +1,2 @@
+# SDS385 STAT MODELS FOR BIG DATA 
+# Assignments and projects for SDS385, STAT MODELS FOR BIG DATA 
