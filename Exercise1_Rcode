@@ -1,3 +1,5 @@
+
+
 ### SDS 385 Exercise 1
 install.packages("Matrix")
 install.packages("microbenchmark")
@@ -70,3 +72,39 @@ for (i in 1:length(N)){
 
 
 comp_resutls
+
+### SDS 385 - Exercise 1, Part B.
+
+library(Matrix)
+
+#Part B:
+
+#Reading data
+rm(data)
+data = read.csv("wdbc.csv", header = FALSE)
+
+##making variables
+
+y = data[,2]
+X = as.matrix(cbind(1, scale(data[,3:12])))
+
+##convert y values to 1/0
+Y = rep(0, length(y)); Y[y=='M']=1
+
+##setting up vector of sample sizes
+s <- rep(1, nrow(X))
+
+##Making Binomial Negative Logliklihood Function
+log_l <- function(X, Y, beta, ){
+  w <- 1 / (1 + exp(-X %% beta))
+  log_l <- sum(Y*log(w) + (s-Y))
+  return(log_l)
+}
+
+##Gradient
+gradient = funiction (Y, X, beta, s){
+  w <- 1/ (1 + exp(-X %*% beta))
+  gradient <- array(NA, dim=length(beta))
+  gradient <- -apply(X*as.numeric(Y-m*w), 2, sum)
+  return(gradient)
+}
