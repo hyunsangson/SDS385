@@ -95,16 +95,16 @@ Y = rep(0, length(y)); Y[y=='M']=1
 s <- rep(1, nrow(X))
 
 ##Making Binomial Negative Logliklihood Function
-log_l <- function(X, Y, beta, ){
+log_l <- function(X, Y, beta, s){
   w <- 1 / (1 + exp(-X %% beta))
   log_l <- sum(Y*log(w) + (s-Y))
   return(log_l)
 }
 
 ##Gradient
-gradient = funiction (Y, X, beta, s){
-  w <- 1/ (1 + exp(-X %*% beta))
-  gradient <- array(NA, dim=length(beta))
-  gradient <- -apply(X*as.numeric(Y-m*w), 2, sum)
+gradient <- function (X, Y, beta, s){
+  w <- 1 / (1 + exp(-X %*% beta))  ###calculating probabilities w_i
+  gradient <- array(NA, dim=length(beta)) 
+  gradient <- -apply(X*as.numeric(Y-s*w),2,sum)
   return(gradient)
 }
