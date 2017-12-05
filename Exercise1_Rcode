@@ -7,8 +7,6 @@ install.packages("microbenchmark")
 ##Question C##
 
 # y = xb + e
-```ruby
-require 'redcarpet'
 
 #Inversion method
 #   X: Design matrix, N x p, vector of x values
