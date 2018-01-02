@@ -1,5 +1,5 @@
 # SDS385 STAT MODELS FOR BIG DATA 
-This folder contains Rcodes and solution for the several issues dealt in the Statistical Models for Big Data seminar at UT Austin, including: 
+This folder contains Rcodes and solutions for the several issues dealt in the Statistical Models for Big Data seminar at UT Austin, including: 
 
 1. Big regression models
 2. Regularization and sparsity in statistical models
